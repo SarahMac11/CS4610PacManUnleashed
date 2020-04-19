@@ -9,12 +9,12 @@
 # PacMan Unleashed
 A maze-PacMan game with different levels that have different points of view, mazes, enemies and power-ups.
 
-## Stage 1: 2D game:
+## Stage 1: 2D game
 - Template of a maze with your PacMan character moving through it with a fixed camera. A collision into enemies or walls will result in the loss of a life or the game.
 - 3D map with a superimposed 2D view. Similar to classic PacMan.
-## Stage 2: 3D game:
+## Stage 2: 3D game
 - 1st person PacMan maze that follows the player’s POV
-## Stage 3: 3rd or 1st person PacMan maze:
+## Stage 3: 3rd or 1st person PacMan maze
 - Weapons (possible power-ups/rapid fire)
 - Multiple lives
 - Fruit - health, speed-up
@@ -23,7 +23,7 @@ A maze-PacMan game with different levels that have different points of view, maz
 	- New enemies
 
 
-## Methods/Goals:
+## Methods/Goals
 
 - Unity
 - Map Functionality 
