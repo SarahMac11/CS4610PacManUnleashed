@@ -4,6 +4,7 @@
 ## Team Members: Nick Henry, Sarah McLaughlin, Jay Toebben, Tiffany Young
 ## Contact Person: Jay Toebben (ejtn78@mail.missouri.edu)
 ## Project Plan: Meeting every 2 - 3 days
+- Zoom and Slack used for communication
 
 # PacMan Unleashed
 A maze-PacMan game with different levels that have different points of view, mazes, enemies and power-ups.
