@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    var Counter : score = 0;
+    private float score = 0;
+    public Text scoreTxt;
     
     // Start is called before the first frame update
     void Start()
@@ -17,11 +18,12 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreTxt.text = score.ToString("f0");
+        scoreTxt.text = score.ToString("f0");   // display current score
     }
     
     // react to collision
-    void React() {
-        score += 10;    // increment score
+    void ApplyPoints(float pacdot) {
+        score += pacdot;    // increment score
+        Update ();  // Update score with react
     }
 }
