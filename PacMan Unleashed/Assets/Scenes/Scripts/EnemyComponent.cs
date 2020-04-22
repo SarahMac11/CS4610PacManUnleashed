@@ -17,6 +17,7 @@ public class EnemyComponent : MonoBehaviour
 
     private Vector3 initialPosition = Vector3.zero;
     public int number = 1;
+    public int directionValue = 1;
     private Animator animator = null;
     // Start is called before the first frame update
     void Reset()
@@ -26,7 +27,7 @@ public class EnemyComponent : MonoBehaviour
 
         animator.SetBool("isDead", false);
         animator.SetBool("isMoving", false);
-
+        directionValue = 1;
         currentDirection = down;
         
     }
@@ -46,7 +47,9 @@ public class EnemyComponent : MonoBehaviour
     void Update()
     {
         var isMoving = true;
-        number = Random.Range(1, 2);
+        number = Random.Range(1, 1000000) % 2;
+        Debug.Log(number);
+        Debug.Log(currentDirection);
         //pacmanPosition = GameObject.FindWithTag("Pacman").transform.position;
         //enemyPosition = transform.position;
 
@@ -84,29 +87,33 @@ public class EnemyComponent : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        number = Random.Range(1, 2);
+       // number = Random.Range(1, 2);
         if (other.CompareTag("Wall"))
         {
 
-            if(currentDirection == up || currentDirection == down)
+            if(directionValue == 0 || directionValue == 1)
             {
-                if(currentDirection == up)
+                if(number == 1)
                 {
+                    directionValue = 2;
                     currentDirection = left;
                 }
                 else
                 {
+                    directionValue = 3;
                     currentDirection = right;
                 }
             }
             else
             {
-                if(currentDirection == left)
+                if(number == 1)
                 {
+                    directionValue = 1;
                     currentDirection = down;
                 }
                 else
                 {
+                    directionValue = 0;
                     currentDirection = up;
                 }
             }
