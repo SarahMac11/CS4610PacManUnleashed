@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class PacmanController : MonoBehaviour
 {
-    public float MovementSpeed = 0f;
+    // public float MovementSpeed = 0f;
+    public float moveSpeed;
+    private Vector3 moveDirection;
+    // Start is called before the first frame update
+    public CharacterController controller;
 
-    private Vector3 up = Vector3.zero,
-                    right = new Vector3(0,90,0),
-                    down = new Vector3(0,180,0),
-                    left = new Vector3(0,270,0),
-                    currentDirection = Vector3.zero;
+    private float up = 0f,
+                    right = 90f,
+                    down = 180f,
+                    left = 270f,
+                    currentDirection = 0f;
 
     private Vector3 initialPosition = Vector3.zero;
 
@@ -35,7 +39,8 @@ public class PacmanController : MonoBehaviour
 
         initialPosition = transform.position;
         animator = GetComponent<Animator>();
-      //  animator.SetBool("isMoving", true);
+        controller = GetComponent<CharacterController>();
+        //  animator.SetBool("isMoving", true);
         Reset();
     }
 
@@ -53,22 +58,26 @@ public class PacmanController : MonoBehaviour
         else if (Input.GetKey(KeyCode.LeftArrow)) currentDirection = left;
         else isMoving = false;
 
-        transform.localEulerAngles = currentDirection;
+        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, currentDirection, transform.localEulerAngles.z);
+        // transform.Rotate(0,90,0,Space.Self);
         animator.SetBool("isMoving", isMoving);
 
         if (isMoving)
-            transform.Translate(Vector3.forward * MovementSpeed * Time.deltaTime);
-
-
+        {
+            //  transform.Translate(Vector3.forward * MovementSpeed * Time.deltaTime);
+            moveDirection = new Vector3(Input.GetAxis("Horizontal") * moveSpeed, 0f, Input.GetAxis("Vertical") * moveSpeed);
+            Debug.Log(moveDirection);
+            controller.Move(moveDirection * Time.deltaTime);
+        }
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
             animator.SetBool("isDead", true);
-       // else if (other.CompareTag("Wall"))
-            //while(other.CompareTag("Wall"))
-       //     animator.SetBool("isMoving", false);
+        // else if (other.CompareTag("Wall"))
+        //while(other.CompareTag("Wall"))
+        //     animator.SetBool("isMoving", false);
 
     }
 }

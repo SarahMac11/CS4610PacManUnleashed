@@ -168,12 +168,12 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 5c94f612e39c9c64188d491fba278667,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 5c94f612e39c9c64188d491fba278667,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.5
+      value: -16
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 5c94f612e39c9c64188d491fba278667,
         type: 3}
@@ -268,6 +268,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &183909765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183909762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23664882032f1944786f660f187e7e76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10
+  controller: {fileID: 0}
 --- !u!135 &183909766
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -281,20 +295,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &183909769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 183909762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c27b43fc387bf6d46858fbd81a102d39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 10
-  controller: {fileID: 0}
 --- !u!143 &183909770
 CharacterController:
   m_ObjectHideFlags: 0
