@@ -17,13 +17,13 @@ public class PacmanController : MonoBehaviour
                     left = 270f,
                     currentDirection = 0f;
 
-   // private Vector3 initialPosition = Vector3.zero;
+    private Vector3 initialPosition = Vector3.zero;
 
     private Animator animator = null;
 
     public void Reset()
     {
-        //transform.position = initialPosition;
+        transform.position = initialPosition;
 
         animator.SetBool("isDead", false);
         animator.SetBool("isMoving", false);
@@ -38,7 +38,7 @@ public class PacmanController : MonoBehaviour
     {
         QualitySettings.vSyncCount = 0;
 
-      //  initialPosition = transform.position;
+        initialPosition = transform.position;
         animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
       //  animator.SetBool("isMoving", true);
