@@ -19,4 +19,10 @@ public class GhostFollow : MonoBehaviour
     {
         enemy.destination=player.transform.position;
     }
+
+//    void OnTriggerEnter(Collider co) {
+//        if(co.gameObject.name == "Pacman") {   // if pacman collides into pac dot
+//            // decrement health
+//        }
+//    }
 }

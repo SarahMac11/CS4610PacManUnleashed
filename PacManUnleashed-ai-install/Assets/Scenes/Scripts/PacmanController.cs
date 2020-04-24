@@ -20,6 +20,9 @@ public class PacmanController : MonoBehaviour
     private Vector3 initialPosition = Vector3.zero;
 
     private Animator animator = null;
+    
+    public GameObject Life1, Life2, Life3;
+    public static int health;
 
     public void Reset()
     {
@@ -28,6 +31,31 @@ public class PacmanController : MonoBehaviour
         animator.SetBool("isDead", false);
         animator.SetBool("isMoving", false);
         //Do the life stuff here
+//        if(health > 3)
+//            health = 3; // max lives = 3
+//        switch(health) {
+//            case 3:
+//                Life1.gameObject.SetActive(true);
+//                Life2.gameObject.SetActive(true);
+//                Life3.gameObject.SetActive(true);
+//                break;
+//            case 2:
+//                Life1.gameObject.SetActive(true);
+//                Life2.gameObject.SetActive(true);
+//                Life3.gameObject.SetActive(false);
+//                break;
+//            case 1:
+//                Life1.gameObject.SetActive(true);
+//                Life2.gameObject.SetActive(false);
+//                Life3.gameObject.SetActive(false);
+//                break;
+//            case 0:
+//                Life1.gameObject.SetActive(false);
+//                Life2.gameObject.SetActive(false);
+//                Life3.gameObject.SetActive(false);
+//                break;
+//        }
+//        print("health " + health);
         currentDirection = down;
 
     }
@@ -42,6 +70,13 @@ public class PacmanController : MonoBehaviour
         animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
       //  animator.SetBool("isMoving", true);
+        
+        health = 3;
+        Life1.gameObject.SetActive(true);
+        Life2.gameObject.SetActive(true);
+        Life3.gameObject.SetActive(true);
+        print("health " + health);
+        
         Reset();
     }
 
@@ -50,7 +85,6 @@ public class PacmanController : MonoBehaviour
     {
         var isMoving = true;
         var isDead = animator.GetBool("isDead");
-
 
         if (isDead) isMoving = false;
         else if (Input.GetKey(KeyCode.UpArrow)) currentDirection = up;
@@ -69,12 +103,47 @@ public class PacmanController : MonoBehaviour
             Debug.Log(moveDirection);
             controller.Move(moveDirection * Time.deltaTime);
         }
+        
+        if(health > 3)
+            health = 3; // max lives = 3
+        switch(health) {
+            case 3:
+                Life1.gameObject.SetActive(true);
+                Life2.gameObject.SetActive(true);
+                Life3.gameObject.SetActive(true);
+                break;
+            case 2:
+                Life1.gameObject.SetActive(true);
+                Life2.gameObject.SetActive(true);
+                Life3.gameObject.SetActive(false);
+                break;
+            case 1:
+                Life1.gameObject.SetActive(true);
+                Life2.gameObject.SetActive(false);
+                Life3.gameObject.SetActive(false);
+                break;
+            case 0:
+                Life1.gameObject.SetActive(false);
+                Life2.gameObject.SetActive(false);
+                Life3.gameObject.SetActive(false);
+                break;
+        }
+        print("health " + health);
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy")) {
             animator.SetBool("isDead", true);
+            if (health == 3)
+                health = 2;
+            if (health == 2)
+                health = 1;
+            if (health == 1)
+                health = 0;
+        }
+        
+            
        // else if (other.CompareTag("Wall"))
             //while(other.CompareTag("Wall"))
        //     animator.SetBool("isMoving", false);
