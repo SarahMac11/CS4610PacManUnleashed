@@ -135,12 +135,7 @@ public class PacmanController : MonoBehaviour
     {
         if (other.CompareTag("Enemy")) {
             animator.SetBool("isDead", true);
-            if (health == 3)
-                health = 2;
-            if (health == 2)
-                health = 1;
-            if (health == 1)
-                health = 0;
+            health--;
         }
         
             

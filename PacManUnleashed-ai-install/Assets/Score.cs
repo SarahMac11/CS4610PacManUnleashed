@@ -17,7 +17,14 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-//        scoreText.text = score.ToString();
+        if(score == 1000) {
+            PacmanController.health++;
+            print("score health " + PacmanController.health);
+        }
+        if(score == 2000) {
+            PacmanController.health++;
+            print("score health " + PacmanController.health);
+        }
     }
     
     void OnGUI() {
