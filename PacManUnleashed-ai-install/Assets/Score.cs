@@ -6,12 +6,13 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour
 {
     public static int score = 0;    // initialize score to 0
-    public Text scoreText;
+    //Attach your own Font in the Inspector
+//    public Font pacFont;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
     
     // Update is called once per frame
@@ -28,6 +29,10 @@ public class Score : MonoBehaviour
     }
     
     void OnGUI() {
-        GUI.Box(new Rect (50, 50, 75, 50), "SCORE " + "\n" + score.ToString());
+        // create box style
+//        pacFont = (Font)Resources.Load("Fonts/PAC-FONT", typeof(Font));
+//        GUIStyle style = new GUIStyle();
+//        style.font = pacFont;
+        GUI.Box(new Rect (30, 50, 80, 40), "SCORE " + "\n" + score.ToString());
     }
 }
