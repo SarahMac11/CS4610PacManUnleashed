@@ -28,6 +28,6 @@ public class Score : MonoBehaviour
     }
     
     void OnGUI() {
-        GUI.Box(new Rect (50, 50, 75, 50), "SCORE " + "\n" + score.ToString());
+        GUI.Box(new Rect (30, 50, 80, 40), "SCORE " + "\n" + score.ToString());
     }
 }
