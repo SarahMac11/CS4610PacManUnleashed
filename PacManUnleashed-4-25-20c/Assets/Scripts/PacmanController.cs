@@ -27,6 +27,8 @@ public class PacmanController : MonoBehaviour
     public static int health;
     public Transform Teleporter1;
     public Transform Teleporter2;
+    public AudioSource death;
+    
     public void Reset()
     {
         transform.position = initialPosition;
@@ -67,6 +69,8 @@ public class PacmanController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Get audio
+        death = GetComponent<AudioSource> ();
         //SetTimer();
         QualitySettings.vSyncCount = 0;
 
@@ -161,6 +165,8 @@ public class PacmanController : MonoBehaviour
             health--;
             aTimer.Stop();
             aTimer.Dispose();
+            // play death audio
+            death.Play();
             
           }
        // else if (other.CompareTag("Wall"))
