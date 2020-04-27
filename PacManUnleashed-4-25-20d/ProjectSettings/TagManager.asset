@@ -10,6 +10,7 @@ TagManager:
   - Teleporter1
   - Teleporter2
   - Spawn
+  - Pacdot
   layers:
   - Default
   - TransparentFX

@@ -22,14 +22,14 @@ public class HighScore : MonoBehaviour
         if(Score.score > PlayerPrefs.GetInt("HighScore", 0))
         {
             PlayerPrefs.SetInt("HighScore", Score.score);
-            highScore.text = "HIGH SCORE" + "\n" + Score.score.ToString();
+            highScore.text = "NEW HIGH SCORE!" + "\n" + "HIGH SCORE" + "\n" + Score.score.ToString();
         }
         
         ShowHighScore();
     }
     
     void ShowHighScore() 
-    {
+    {  
         // update text score
         highScore.text = "HIGH SCORE " + Score.score.ToString();
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Timers;
+using UnityEngine.SceneManagement;
 
 public class PacmanController : MonoBehaviour
 {
@@ -28,8 +29,13 @@ public class PacmanController : MonoBehaviour
     public Transform Teleporter1;
     public Transform Teleporter2;
     
-    public AudioSource death;
+    public AudioClip death;
+    public AudioClip chomp;
+    public AudioSource audioSrc;
+//    public float volume = PlayerPrefs.GetFloat("SliderVolumeLevel", death.volume);
         
+    public float volume = 0.7f;
+    
     public void Reset()
     {
         transform.position = initialPosition;
@@ -46,9 +52,10 @@ public class PacmanController : MonoBehaviour
     void Start()
     {
         // Get audio
-        death = GetComponent<AudioSource> ();
-        // get slider volume level if set
-        death.volume = PlayerPrefs.GetFloat("SliderVolumeLevel", death.volume);
+        audioSrc = GetComponent<AudioSource> ();
+//        
+//        // get slider volume level if set
+//        audio.volume = PlayerPrefs.GetFloat("SliderVolumeLevel", death.volume);
         
         //SetTimer();
         QualitySettings.vSyncCount = 0;
@@ -115,7 +122,8 @@ public class PacmanController : MonoBehaviour
                 Life3.gameObject.SetActive(false);
                 // end game
                 isMoving = false;
-//                FindObjectOfType<GameManager>().EndGame();
+                // show game over page
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 break;
         }
        // print("health " + health);
@@ -127,20 +135,20 @@ public class PacmanController : MonoBehaviour
         //  bool alive;
         SetTimer();
       
-        if(!isDead && GhostFollow.ghostMode==1){
+      if(!isDead && GhostFollow.ghostMode==1){
          if (other.CompareTag("Enemy")){
             animator.SetBool("isDead", true);
             health--;
             aTimer.Stop();
             aTimer.Dispose();
             // play death audio
-            death.Play();
+            audioSrc.PlayOneShot(death, volume);
           }
        // else if (other.CompareTag("Wall"))
             //while(other.CompareTag("Wall"))
        //     animator.SetBool("isMoving", false);
 
-       }
+        }
        
        if (other.CompareTag("Teleporter1")){
          if (Input.GetKey(KeyCode.LeftArrow)){
@@ -155,6 +163,10 @@ public class PacmanController : MonoBehaviour
          transform.position = Teleporter1.position;
          controller.enabled=true;
           }
+       }
+       
+       if(other.CompareTag("Pacdot")) {
+            audioSrc.PlayOneShot(chomp, volume);
        }
     }
 
