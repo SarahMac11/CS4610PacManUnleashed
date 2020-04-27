@@ -2,32 +2,58 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Score : MonoBehaviour
 {
     public static int score = 0;    // initialize score to 0
-    public Text scoreText;
-
+    
+    public TextMeshProUGUI scoreText;
+    
+    // audio source
+    public AudioSource extraLife;
+    
     // Start is called before the first frame update
     void Start()
     {
-
+        // Get audio
+        extraLife = GetComponent<AudioSource> ();
+        // get slider volume level if set
+        extraLife.volume = PlayerPrefs.GetFloat("SliderVolumeLevel", extraLife.volume);
+        
+        scoreText = GetComponent<TextMeshProUGUI> ();
+        
     }
     
     // Update is called once per frame
     void Update()
-    {
+    {   
         if(score == 1000) {
             PacmanController.health++;
             print("score health " + PacmanController.health);
+            // Play new life audio
+            extraLife.Play();
         }
         if(score == 2000) {
             PacmanController.health++;
             print("score health " + PacmanController.health);
+            // Play new life audio
+            extraLife.Play();
         }
+        if(score == 3000) {
+            PacmanController.health++;
+            print("score health " + PacmanController.health);
+            // Play new life audio
+            extraLife.Play();
+        }
+
+        
+        ShowScore();
     }
     
-    void OnGUI() {
-        GUI.Box(new Rect (50, 50, 75, 50), "SCORE " + "\n" + score.ToString());
+    void ShowScore() 
+    {
+        // update text score
+        scoreText.text = "SCORE" + "\n" + score.ToString();
     }
 }

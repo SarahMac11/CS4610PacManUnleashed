@@ -23,12 +23,13 @@ public class PacmanController : MonoBehaviour
 
     private Animator animator = null;
 
-     public GameObject Life1, Life2, Life3;
+    public GameObject Life1, Life2, Life3;
     public static int health;
     public Transform Teleporter1;
     public Transform Teleporter2;
-
-
+    
+    public AudioSource death;
+        
     public void Reset()
     {
         transform.position = initialPosition;
@@ -36,31 +37,6 @@ public class PacmanController : MonoBehaviour
         animator.SetBool("isDead", false);
         animator.SetBool("isMoving", false);
                //Do the life stuff here
-//        if(health > 3)
-//            health = 3; // max lives = 3
-//        switch(health) {
-//            case 3:
-//                Life1.gameObject.SetActive(true);
-//                Life2.gameObject.SetActive(true);
-//                Life3.gameObject.SetActive(true);
-//                break;
-//            case 2:
-//                Life1.gameObject.SetActive(true);
-//                Life2.gameObject.SetActive(true);
-//                Life3.gameObject.SetActive(false);
-//                break;
-//            case 1:
-//                Life1.gameObject.SetActive(true);
-//                Life2.gameObject.SetActive(false);
-//                Life3.gameObject.SetActive(false);
-//                break;
-//            case 0:
-//                Life1.gameObject.SetActive(false);
-//                Life2.gameObject.SetActive(false);
-//                Life3.gameObject.SetActive(false);
-//                break;
-//        }
-//        print("health " + health);
         currentDirection = down;
 
     }
@@ -69,6 +45,11 @@ public class PacmanController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Get audio
+        death = GetComponent<AudioSource> ();
+        // get slider volume level if set
+        death.volume = PlayerPrefs.GetFloat("SliderVolumeLevel", death.volume);
+        
         //SetTimer();
         QualitySettings.vSyncCount = 0;
 
@@ -92,11 +73,6 @@ public class PacmanController : MonoBehaviour
         var isMoving = true;
         isDead = animator.GetBool("isDead");
 
-        
-
-
-
-
         if (isDead) isMoving = false;
         else if (Input.GetKey(KeyCode.UpArrow)) currentDirection = up;
         else if (Input.GetKey(KeyCode.RightArrow)) currentDirection = right;
@@ -115,7 +91,7 @@ public class PacmanController : MonoBehaviour
             controller.Move(moveDirection * Time.deltaTime);
         }
 
-              if(health > 3)
+        if(health > 3)
             health = 3; // max lives = 3
         switch(health) {
             case 3:
@@ -137,6 +113,9 @@ public class PacmanController : MonoBehaviour
                 Life1.gameObject.SetActive(false);
                 Life2.gameObject.SetActive(false);
                 Life3.gameObject.SetActive(false);
+                // end game
+                isMoving = false;
+//                FindObjectOfType<GameManager>().EndGame();
                 break;
         }
        // print("health " + health);
@@ -144,10 +123,9 @@ public class PacmanController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-      //  bool alive;
- 
-
-       SetTimer();
+        
+        //  bool alive;
+        SetTimer();
       
         if(!isDead && GhostFollow.ghostMode==1){
          if (other.CompareTag("Enemy")){
@@ -155,7 +133,8 @@ public class PacmanController : MonoBehaviour
             health--;
             aTimer.Stop();
             aTimer.Dispose();
-            
+            // play death audio
+            death.Play();
           }
        // else if (other.CompareTag("Wall"))
             //while(other.CompareTag("Wall"))
