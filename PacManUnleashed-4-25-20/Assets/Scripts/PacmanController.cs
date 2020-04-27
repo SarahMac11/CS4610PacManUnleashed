@@ -18,6 +18,8 @@ public class PacmanController : MonoBehaviour
                     down = 180f,
                     left = 270f,
                     currentDirection = 0f;
+    private Vector3 location1 = new Vector3(-440, -253, 0),
+                    location2 = new Vector3(-395, -253, 0);
 
     private Vector3 initialPosition = Vector3.zero;
 
@@ -29,7 +31,7 @@ public class PacmanController : MonoBehaviour
     public void Reset()
     {
         transform.position = initialPosition;
-
+        Debug.Log(transform.position);
         animator.SetBool("isDead", false);
         animator.SetBool("isMoving", false);
                //Do the life stuff here
@@ -59,7 +61,7 @@ public class PacmanController : MonoBehaviour
 //        }
 //        print("health " + health);
         currentDirection = down;
-
+      //  transform.position = location2;
     }
 
 
@@ -152,7 +154,7 @@ public class PacmanController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        bool alive;
+       // bool alive;
         if(!isDead){
          if (other.CompareTag("Enemy")){
             animator.SetBool("isDead", true);
@@ -161,10 +163,18 @@ public class PacmanController : MonoBehaviour
             aTimer.Dispose();
             
           }
+         else if (other.CompareTag("Tele1"))
+            {
+                transform.position = location2;
+            }
+         else if (other.CompareTag("Tele2"))
+            {
+                transform.position = location1;
+            }
        // else if (other.CompareTag("Wall"))
             //while(other.CompareTag("Wall"))
        //     animator.SetBool("isMoving", false);
-
+       //(-440, -252.5, 0) (-395, -252.5, 0) teleport locations  
        }
     }
 
