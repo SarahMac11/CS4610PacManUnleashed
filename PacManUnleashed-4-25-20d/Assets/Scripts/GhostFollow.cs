@@ -57,6 +57,11 @@ public class GhostFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(PacmanController.pacdotCounter == 0)
+        {
+            transform.position = spawn.transform.position;
+        }
         
         if (currentMode== Mode.Scared)
         {

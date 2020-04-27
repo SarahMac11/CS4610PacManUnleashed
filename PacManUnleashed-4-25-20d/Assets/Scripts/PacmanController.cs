@@ -21,8 +21,11 @@ public class PacmanController : MonoBehaviour
                     currentDirection = 0f;
 
     private Vector3 initialPosition = Vector3.zero;
+    GameObject[] pacdots;
 
     private Animator animator = null;
+    private bool isEmpty = false;
+    public static int pacdotCounter;
 
     public GameObject Life1, Life2, Life3;
     public static int health;
@@ -39,7 +42,7 @@ public class PacmanController : MonoBehaviour
     public void Reset()
     {
         transform.position = initialPosition;
-
+        isEmpty = false;
         animator.SetBool("isDead", false);
         animator.SetBool("isMoving", false);
                //Do the life stuff here
@@ -63,14 +66,14 @@ public class PacmanController : MonoBehaviour
         initialPosition = transform.position;
         animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
-      //  animator.SetBool("isMoving", true);
-
+        //  animator.SetBool("isMoving", true);
+        pacdotCounter = 286;
        health = 3;
         Life1.gameObject.SetActive(true);
         Life2.gameObject.SetActive(true);
         Life3.gameObject.SetActive(true);
-      //  print("health " + health);
-        
+        //  print("health " + health);
+        GameObject[] pacdots = GameObject.FindGameObjectsWithTag("Pacdot");
         Reset();
     }
 
@@ -79,6 +82,8 @@ public class PacmanController : MonoBehaviour
     {
         var isMoving = true;
         isDead = animator.GetBool("isDead");
+
+     
 
         if (isDead) isMoving = false;
         else if (Input.GetKey(KeyCode.UpArrow)) currentDirection = up;
@@ -167,6 +172,23 @@ public class PacmanController : MonoBehaviour
        
        if(other.CompareTag("Pacdot")) {
             audioSrc.PlayOneShot(chomp, volume);
+            pacdotCounter -= 1;
+            //Debug.Log(pacdotCounter);
+            if(pacdotCounter == 0)
+            {
+                //pacdotCounter = 286;
+                //isEmpty = true;
+                //Debug.Log(isEmpty);
+                controller.enabled = false;
+                Reset();
+                controller.enabled = true;
+                GameObject[] pacdots = GameObject.FindGameObjectsWithTag("Pacdot");
+                for(int i = 0; i < 286; i++)
+                {
+                    pacdots[i].SetActive(true);
+                }
+                //Pacdot.gameObject.SetActive(true);
+            }
        }
     }
 
