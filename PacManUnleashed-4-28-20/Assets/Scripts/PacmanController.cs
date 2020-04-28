@@ -34,7 +34,10 @@ public class PacmanController : MonoBehaviour
       public float timeBetweenShots = 0.25f;
     private float timer;
     //    public float volume = PlayerPrefs.GetFloat("SliderVolumeLevel", death.volume);
-    public float volume = 0.7f;
+    public float volume = 0.25f;
+    
+    public static int level;
+    
     public void Reset()
     {
         transform.position = initialPosition;
@@ -49,6 +52,9 @@ public class PacmanController : MonoBehaviour
             {
                 pacdots[i].SetActive(true);
             }
+            // increase level
+            level++;
+            print("pac controller level " + level);
         }
         isEmpty = false;
     }
@@ -67,6 +73,7 @@ public class PacmanController : MonoBehaviour
         controller = GetComponent<CharacterController>();
         //  animator.SetBool("isMoving", true);
         pacdotCounter = 286;
+        level = 1;  // default at level 1
         health = 3;
         Life1.gameObject.SetActive(true);
         Life2.gameObject.SetActive(true);

@@ -508,7 +508,7 @@ MonoBehaviour:
   death: {fileID: 8300000, guid: 6d58c052644f14b30ad5585bd9581fe8, type: 3}
   chomp: {fileID: 8300000, guid: d242853bf938044bba76ea91a7f3ce49, type: 3}
   audioSrc: {fileID: 0}
-  volume: 0.7
+  volume: 0.25
 --- !u!82 &183909769
 AudioSource:
   m_ObjectHideFlags: 0
