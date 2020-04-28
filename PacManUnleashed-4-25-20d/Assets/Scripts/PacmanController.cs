@@ -4,9 +4,11 @@ using UnityEngine;
 using System;
 using System.Timers;
 using UnityEngine.SceneManagement;
+
 public class PacmanController : MonoBehaviour
 {
     private static System.Timers.Timer aTimer;
+    private static System.Timers.Timer levelTimer;
     // public float MovementSpeed = 0f;
     public float moveSpeed;
     private Vector3 moveDirection;
@@ -31,10 +33,13 @@ public class PacmanController : MonoBehaviour
     public AudioClip death;
     public AudioClip chomp;
     public AudioSource audioSrc;
-    //    public float volume = PlayerPrefs.GetFloat("SliderVolumeLevel", death.volume);
-    public float volume = 0.7f;
+    public static int level;
+//    public float setVol = PlayerPrefs.GetFloat("SliderVolumeLevel", 0);
+    public float volume = 0.25f;
+    
+    
     public void Reset()
-    {
+    {    
         transform.position = initialPosition;
         // isEmpty = false;
         animator.SetBool("isDead", false);
@@ -49,10 +54,13 @@ public class PacmanController : MonoBehaviour
             }
         }
         isEmpty = false;
+        level++;
+        print("pac controller level " + level);
     }
     // Start is called before the first frame update
     void Start()
     {
+//        Debug.Log("player pref vol " + setVol);
         // Get audio
         audioSrc = GetComponent<AudioSource>();
         //
@@ -71,6 +79,7 @@ public class PacmanController : MonoBehaviour
         Life3.gameObject.SetActive(true);
         //  print("health " + health);
         pacdots = GameObject.FindGameObjectsWithTag("Pacdot");
+        level = 0;  // set default level to 1
         Reset();
     }
     // Update is called once per frame
@@ -123,7 +132,6 @@ public class PacmanController : MonoBehaviour
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 break;
         }
-        // print("health " + health);
     }
     void OnTriggerEnter(Collider other)
     {
@@ -164,7 +172,7 @@ public class PacmanController : MonoBehaviour
         }
         if (other.CompareTag("Pacdot"))
         {
-            audioSrc.PlayOneShot(chomp, volume);
+//            audioSrc.PlayOneShot(chomp, volume);
             pacdotCounter -= 1;
             //Debug.Log(pacdotCounter);
             if (pacdotCounter == 0)
@@ -192,4 +200,5 @@ public class PacmanController : MonoBehaviour
         aTimer.AutoReset = true;
         aTimer.Enabled = true;
     }
+    
 }

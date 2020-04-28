@@ -11,6 +11,7 @@ TagManager:
   - Teleporter2
   - Spawn
   - Pacdot
+  - ShowOnPause
   layers:
   - Default
   - TransparentFX

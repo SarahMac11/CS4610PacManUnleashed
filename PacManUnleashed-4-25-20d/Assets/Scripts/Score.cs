@@ -19,7 +19,7 @@ public class Score : MonoBehaviour
         // Get audio
         extraLife = GetComponent<AudioSource> ();
         // get slider volume level if set
-        extraLife.volume = PlayerPrefs.GetFloat("SliderVolumeLevel", extraLife.volume);
+//        extraLife.volume = PlayerPrefs.GetFloat("SliderVolumeLevel", extraLife.volume);
         
         scoreText = GetComponent<TextMeshProUGUI> ();
         
@@ -28,19 +28,7 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        if(score == 1000) {
-            PacmanController.health++;
-            print("score health " + PacmanController.health);
-            // Play new life audio
-            extraLife.Play();
-        }
-        if(score == 2000) {
-            PacmanController.health++;
-            print("score health " + PacmanController.health);
-            // Play new life audio
-            extraLife.Play();
-        }
-        if(score == 3000) {
+        if(score != 0 && score % 1000 == 0) {
             PacmanController.health++;
             print("score health " + PacmanController.health);
             // Play new life audio
