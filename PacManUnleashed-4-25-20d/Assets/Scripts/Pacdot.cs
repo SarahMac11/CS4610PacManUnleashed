@@ -20,14 +20,14 @@ public class Pacdot : MonoBehaviour
            // Debug.Log("made it");
           //  Pacdot.SetActive(true);
         }
-        Debug.Log("test");
-        this.gameObject.SetActive(true);
+       // Debug.Log("test");
+      //  this.gameObject.SetActive(true);
     }
     
 
     public void Reset()
     {
-        this.gameObject.SetActive(true);
+        //this.gameObject.SetActive(true);
     }
 
     void OnTriggerEnter(Collider co) {

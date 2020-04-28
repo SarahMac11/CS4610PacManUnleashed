@@ -28,7 +28,7 @@ public class BigPacdot : MonoBehaviour
           
         chomp.Play();
         Score.score += 20;
-        Destroy(this.gameObject);    // destory pac dot game object
+        this.gameObject.SetActive(false);   // destory pac dot game object
         }
     }
 }
