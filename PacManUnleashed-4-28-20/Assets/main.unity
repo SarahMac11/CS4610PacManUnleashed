@@ -618,6 +618,103 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!82 &183909772
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183909762}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: ab5c76bf540514bb4beea9838f72a8ae,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 776dfbc7d57d441f0aef3a6288e8f043, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.25
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &196429123
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1034,6 +1131,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: pear_v2
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 131007c48b6574317b03fc51cb8b0dc4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Fruit
+      objectReference: {fileID: 0}
     - target: {fileID: 2849758205175617200, guid: 131007c48b6574317b03fc51cb8b0dc4,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1041,6 +1143,24 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 039df5b6df756481c879a32f01462ca8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 131007c48b6574317b03fc51cb8b0dc4, type: 3}
+--- !u!1 &223621104 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 131007c48b6574317b03fc51cb8b0dc4,
+    type: 3}
+  m_PrefabInstance: {fileID: 223621103}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &223621105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223621104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d71eada36a19d4976bb4ca2f904e23cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &264668200
 GameObject:
   m_ObjectHideFlags: 0
@@ -1709,8 +1829,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: banana_v2
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 92dd6c53548404350b13f2802e957443,
+        type: 3}
+      propertyPath: m_TagString
+      value: Fruit
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92dd6c53548404350b13f2802e957443, type: 3}
+--- !u!1 &706853758 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 92dd6c53548404350b13f2802e957443,
+    type: 3}
+  m_PrefabInstance: {fileID: 706853757}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &706853759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706853758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d71eada36a19d4976bb4ca2f904e23cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &727319584
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1798,6 +1941,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: cherry_v2
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 9a12c147dd0d840fc98df926f762853c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Fruit
+      objectReference: {fileID: 0}
     - target: {fileID: 1318462475825722627, guid: 9a12c147dd0d840fc98df926f762853c,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1805,6 +1953,36 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 7127c073d27da4464adcc5d5905666c9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a12c147dd0d840fc98df926f762853c, type: 3}
+--- !u!1 &727319585 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 9a12c147dd0d840fc98df926f762853c,
+    type: 3}
+  m_PrefabInstance: {fileID: 727319584}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &727319586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727319585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d71eada36a19d4976bb4ca2f904e23cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &727319587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727319585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d71eada36a19d4976bb4ca2f904e23cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &790256068
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2434,6 +2612,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: apple_v3
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 279553318ab7444deb243d4ab5aecdf9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Fruit
+      objectReference: {fileID: 0}
     - target: {fileID: 1318462475825722627, guid: 279553318ab7444deb243d4ab5aecdf9,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2456,6 +2639,24 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: e2a8e176e164043929cb56e97a0dd2a5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 279553318ab7444deb243d4ab5aecdf9, type: 3}
+--- !u!1 &972832322 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 279553318ab7444deb243d4ab5aecdf9,
+    type: 3}
+  m_PrefabInstance: {fileID: 972832321}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &972832323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972832322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d71eada36a19d4976bb4ca2f904e23cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1011431428
 GameObject:
   m_ObjectHideFlags: 0
@@ -6293,6 +6494,7 @@ MonoBehaviour:
   scoreText: {fileID: 1999680356}
   extraLife: {fileID: 8300000, guid: 1293e12a2143c425f812c46705f0a5f9, type: 3}
   audioSrc: {fileID: 0}
+  newLife: 0
 --- !u!82 &1999680359
 AudioSource:
   m_ObjectHideFlags: 0

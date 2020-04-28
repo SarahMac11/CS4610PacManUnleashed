@@ -33,7 +33,9 @@ public class Score : MonoBehaviour
         if(score != 0 && score % 1000 == 0) {
             PacmanController.health++;
             print("score health " + PacmanController.health);
-            PlayExtraLifeAudio();
+            print("Playing extra life at " + audioSrc.volume);
+            // play extra life audio
+            audioSrc.PlayOneShot(extraLife, audioSrc.volume);
         }
         
         ShowScore();
@@ -45,8 +47,4 @@ public class Score : MonoBehaviour
         scoreText.text = "SCORE" + "\n" + score.ToString();
     }
     
-    void PlayExtraLifeAudio() {
-        // play extra life audio
-        audioSrc.PlayOneShot(extraLife, audioSrc.volume);
-    }
 }

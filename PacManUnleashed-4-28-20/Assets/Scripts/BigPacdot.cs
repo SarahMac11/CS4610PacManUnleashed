@@ -22,7 +22,7 @@ public class BigPacdot : MonoBehaviour
             go.GetComponent<GhostFollow> ().startScaredGhost ();
           }
           
-        Score.score += 20;
+        Score.score += 30;
         this.gameObject.SetActive(false);   // destory pac dot game object
         }
     }

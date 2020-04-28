@@ -31,6 +31,7 @@ public class PacmanController : MonoBehaviour
     // audio sources
     public AudioClip death;
     public AudioClip chomp;
+    public AudioClip fruit;
     public AudioSource audioSrc;
     public float timeBetweenShots = 0.25f;
     private float timer;
@@ -63,7 +64,7 @@ public class PacmanController : MonoBehaviour
         // Get audio volume
         audioSrc = GetComponent<AudioSource>();
         audioSrc.volume = PlayerPrefs.GetFloat("SliderVolumeLevel", audioSrc.volume);
-        print("Audio source set volume " + audioSrc.volume);
+
 
         //SetTimer();
         QualitySettings.vSyncCount = 0;
@@ -194,6 +195,9 @@ public class PacmanController : MonoBehaviour
                 //GameObject[] pacdots = GameObject.FindGameObjectsWithTag("Pacdot");
                 //Pacdot.gameObject.SetActive(true);
             }
+        }
+        if(other.CompareTag("Fruit")) {
+            audioSrc.PlayOneShot(fruit, audioSrc.volume);
         }
     }
     private static void SetTimer()
