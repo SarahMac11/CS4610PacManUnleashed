@@ -5,13 +5,11 @@ using UnityEngine.UI;
 
 public class Pacdot : MonoBehaviour
 {
-    // audio source
-    //    public AudioSource chomp;
+
    // public int pacdotCounter; 
     void Start() 
     {
-        // Get audio
-//        chomp = GetComponent<AudioSource> ();
+
     }
     void Update()
     {
@@ -33,7 +31,6 @@ public class Pacdot : MonoBehaviour
     void OnTriggerEnter(Collider co) {
         if(co.gameObject.name == "Pacman") {   // if pacman collides into pac dot
         
-//            chomp.Play();
             // send react message
             Score.score += 10;
             this.gameObject.SetActive(false);

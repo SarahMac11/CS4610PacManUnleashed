@@ -10,17 +10,17 @@ public class LevelUp : MonoBehaviour
     
     public TextMeshProUGUI levelText;
     
-    // audio source
-    public AudioSource newLevel;
+    // eat ghost audio
+    public AudioClip levelUp;
+    public AudioSource audioSrc;
     public static bool newLevelUpdate = false;
     
     // Start is called before the first frame update
     void Start()
     {
-        // Get audio
-        newLevel = GetComponent<AudioSource> ();
-        // get slider volume level if set
-//        extraLife.volume = PlayerPrefs.GetFloat("SliderVolumeLevel", extraLife.volume);
+        // Get audio volume
+        audioSrc = GetComponent<AudioSource>();
+        audioSrc.volume = PlayerPrefs.GetFloat("SliderVolumeLevel", audioSrc.volume);
         
         levelText = GetComponent<TextMeshProUGUI> ();
     }
@@ -31,12 +31,14 @@ public class LevelUp : MonoBehaviour
         level = PacmanController.level;
         if(level > oldVal) {
             newLevelUpdate = true;
-            print("old val " + oldVal);
-            print("level " + level);
+//            print("old val " + oldVal);
+//            print("level " + level);
             showLevelUp();
             showLevel();
             oldVal = level;
-            print("new old val " + oldVal);
+            // play extra life audio
+            audioSrc.PlayOneShot(levelUp, audioSrc.volume);
+//            print("new old val " + oldVal);
             
         } else {
             newLevelUpdate = false;
@@ -54,6 +56,5 @@ public class LevelUp : MonoBehaviour
     void showLevelUp() {
         print("LEVEL UP");
         levelText.text = "LEVEL UP!" + "\n" + "LEVEL " + level.ToString();
-        newLevel.Play();
     }
 }

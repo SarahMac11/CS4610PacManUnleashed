@@ -406,7 +406,6 @@ MonoBehaviour:
   chomp: {fileID: 8300000, guid: d242853bf938044bba76ea91a7f3ce49, type: 3}
   audioSrc: {fileID: 0}
   timeBetweenShots: 0.6
-  volume: 0.5
 --- !u!82 &183909769
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3853,7 +3852,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oldVal: 1
   levelText: {fileID: 1419990391}
-  newLevel: {fileID: 0}
+  levelUp: {fileID: 8300000, guid: 938f3f8bac1b5455a9aa7c8cfd425b78, type: 3}
+  audioSrc: {fileID: 0}
 --- !u!114 &1419990391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4214,7 +4214,8 @@ MonoBehaviour:
   blink: 1
   offset: {x: 0, y: 0, z: 0}
   distance: 0
-  eatGhost: {fileID: 0}
+  eatGhost: {fileID: 8300000, guid: 4ab400c6ed9d84f10892f2162a5ca4da, type: 3}
+  audioSrc: {fileID: 0}
 --- !u!135 &1499618277
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5365,7 +5366,8 @@ MonoBehaviour:
   blink: 1
   offset: {x: 0, y: 0, z: 0}
   distance: 0
-  eatGhost: {fileID: 0}
+  eatGhost: {fileID: 8300000, guid: 4ab400c6ed9d84f10892f2162a5ca4da, type: 3}
+  audioSrc: {fileID: 0}
 --- !u!195 &1857829798
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5969,7 +5971,8 @@ MonoBehaviour:
   blink: 1
   offset: {x: 0, y: 0, z: 0}
   distance: 0
-  eatGhost: {fileID: 0}
+  eatGhost: {fileID: 8300000, guid: 4ab400c6ed9d84f10892f2162a5ca4da, type: 3}
+  audioSrc: {fileID: 0}
 --- !u!122 &1999646009
 Halo:
   m_ObjectHideFlags: 0
@@ -6288,7 +6291,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1999680356}
-  extraLife: {fileID: 0}
+  extraLife: {fileID: 8300000, guid: 1293e12a2143c425f812c46705f0a5f9, type: 3}
+  audioSrc: {fileID: 0}
 --- !u!82 &1999680359
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6486,7 +6490,8 @@ MonoBehaviour:
   blink: 1
   offset: {x: 0, y: 0, z: 0}
   distance: 0
-  eatGhost: {fileID: 0}
+  eatGhost: {fileID: 8300000, guid: 4ab400c6ed9d84f10892f2162a5ca4da, type: 3}
+  audioSrc: {fileID: 0}
 --- !u!95 &2101946331
 Animator:
   serializedVersion: 3

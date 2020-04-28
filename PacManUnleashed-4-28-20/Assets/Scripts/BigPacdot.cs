@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class BigPacdot : MonoBehaviour
 {
-    // get audio source
-    public AudioSource chomp;
     
     void Start() 
     {
-        chomp = GetComponent<AudioSource> ();
-        // get slider volume level if set
-        chomp.volume = PlayerPrefs.GetFloat("SliderVolumeLevel", chomp.volume);
+
     }
     
     void OnTriggerEnter(Collider co) {
@@ -26,7 +22,6 @@ public class BigPacdot : MonoBehaviour
             go.GetComponent<GhostFollow> ().startScaredGhost ();
           }
           
-        chomp.Play();
         Score.score += 20;
         this.gameObject.SetActive(false);   // destory pac dot game object
         }

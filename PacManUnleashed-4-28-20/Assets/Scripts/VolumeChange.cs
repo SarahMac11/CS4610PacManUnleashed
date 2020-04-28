@@ -37,6 +37,7 @@ public class VolumeChange : MonoBehaviour
         float setVolume = vol;
         // set user pref on volume level
         PlayerPrefs.SetFloat("SliderVolumeLevel", setVolume);
+        Debug.Log("vol set " + setVolume);
     }
 
 }

@@ -22,7 +22,8 @@ public class GhostFollow : MonoBehaviour
     public float distance;
     private Vector3 initialPosition = Vector3.zero;
     // eat ghost audio
-    public AudioSource eatGhost;
+    public AudioClip eatGhost;
+    public AudioSource audioSrc;
     //Ghosts Modes for Animation
     public enum Mode
     {
@@ -34,11 +35,11 @@ public class GhostFollow : MonoBehaviour
 
     Mode currentMode = Mode.Normal;
     void Start()
-    {
-        // Get audio
-        eatGhost = GetComponent<AudioSource>();
-        // get slider volume level if set
-        eatGhost.volume = PlayerPrefs.GetFloat("SliderVolumeLevel", eatGhost.volume);
+    {   
+        // Get audio volume
+        audioSrc = GetComponent<AudioSource>();
+        audioSrc.volume = PlayerPrefs.GetFloat("SliderVolumeLevel", audioSrc.volume);
+        
         player = GameObject.FindGameObjectWithTag("Pacman");
         enemy = GetComponent<NavMeshAgent>();
         initialPosition = transform.position;
@@ -141,9 +142,9 @@ public class GhostFollow : MonoBehaviour
                 // increment score when run into ghost
                 Score.score += 100;
                 // increment health
-                PacmanController.health++;
-                // Play eat ghost audio
-                eatGhost.Play();
+//                PacmanController.health++;
+                // play eat ghost audio
+                audioSrc.PlayOneShot(eatGhost, audioSrc.volume);
             }
         }
     }

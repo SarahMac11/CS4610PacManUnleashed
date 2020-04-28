@@ -10,16 +10,18 @@ public class Score : MonoBehaviour
     
     public TextMeshProUGUI scoreText;
     
-    // audio source
-    public AudioSource extraLife;
+    // eat ghost audio
+    public AudioClip extraLife;
+    public AudioSource audioSrc;
+    
+    public bool newLife = false;
     
     // Start is called before the first frame update
     void Start()
     {
-        // Get audio
-        extraLife = GetComponent<AudioSource> ();
-        // get slider volume level if set
-        extraLife.volume = PlayerPrefs.GetFloat("SliderVolumeLevel", extraLife.volume);
+        // Get audio volume
+        audioSrc = GetComponent<AudioSource>();
+        audioSrc.volume = PlayerPrefs.GetFloat("SliderVolumeLevel", audioSrc.volume);
         
         scoreText = GetComponent<TextMeshProUGUI> ();
         
@@ -31,10 +33,8 @@ public class Score : MonoBehaviour
         if(score != 0 && score % 1000 == 0) {
             PacmanController.health++;
             print("score health " + PacmanController.health);
-            // Play new life audio
-            extraLife.Play();
+            PlayExtraLifeAudio();
         }
-
         
         ShowScore();
     }
@@ -43,5 +43,10 @@ public class Score : MonoBehaviour
     {
         // update text score
         scoreText.text = "SCORE" + "\n" + score.ToString();
+    }
+    
+    void PlayExtraLifeAudio() {
+        // play extra life audio
+        audioSrc.PlayOneShot(extraLife, audioSrc.volume);
     }
 }
