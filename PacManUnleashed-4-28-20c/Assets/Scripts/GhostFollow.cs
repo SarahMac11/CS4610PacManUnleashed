@@ -22,7 +22,10 @@ public class GhostFollow : MonoBehaviour
     public float distance;
     private Vector3 initialPosition = Vector3.zero;
     // eat ghost audio
-    public AudioSource eatGhost;
+    public AudioClip eatGhost;
+    public AudioSource audioSrc;
+    public static int level;
+
     //Ghosts Modes for Animation
     public enum Mode
     {
@@ -35,10 +38,10 @@ public class GhostFollow : MonoBehaviour
     Mode currentMode = Mode.Normal;
     void Start()
     {
-        // Get audio
-        eatGhost = GetComponent<AudioSource>();
-        // get slider volume level if set
-        eatGhost.volume = PlayerPrefs.GetFloat("SliderVolumeLevel", eatGhost.volume);
+        // Get audio volume
+        audioSrc = GetComponent<AudioSource>();
+        audioSrc.volume = PlayerPrefs.GetFloat("SliderVolumeLevel", audioSrc.volume);
+
         player = GameObject.FindGameObjectWithTag("Pacman");
         enemy = GetComponent<NavMeshAgent>();
         initialPosition = transform.position;
@@ -61,7 +64,7 @@ public class GhostFollow : MonoBehaviour
         if (currentMode == Mode.Scared)
         {
             //slightly slow down ghosts and run away from pacman
-            GetComponent<NavMeshAgent>().speed = 4;
+            GetComponent<NavMeshAgent>().speed = 4 + (level * 0.3f);        // increment speed with level
             enemy.destination = player.transform.position + (transform.position - player.transform.position) * 2;
             ghostMode = 0;
         }
@@ -76,7 +79,7 @@ public class GhostFollow : MonoBehaviour
             {
                 enemy.destination = player.transform.position + offset;
             }
-            GetComponent<NavMeshAgent>().speed = 7;
+            GetComponent<NavMeshAgent>().speed = 7 + (level * 0.3f);        // increment speed with level
             ghostMode = 1;
         }
         UpdateAnimatorController();
@@ -140,10 +143,8 @@ public class GhostFollow : MonoBehaviour
                 startNormalGhost();
                 // increment score when run into ghost
                 Score.score += 100;
-                // increment health
-                PacmanController.health++;
-                // Play eat ghost audio
-                eatGhost.Play();
+                // play eat ghost audio
+                audioSrc.PlayOneShot(eatGhost, audioSrc.volume);
             }
         }
     }

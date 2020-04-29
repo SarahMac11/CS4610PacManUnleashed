@@ -462,6 +462,103 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!82 &183909765
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183909762}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: ab5c76bf540514bb4beea9838f72a8ae,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 776dfbc7d57d441f0aef3a6288e8f043, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.25
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!135 &183909766
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -518,9 +615,9 @@ MonoBehaviour:
   Teleporter2: {fileID: 156333815}
   death: {fileID: 8300000, guid: 6d58c052644f14b30ad5585bd9581fe8, type: 3}
   chomp: {fileID: 8300000, guid: d242853bf938044bba76ea91a7f3ce49, type: 3}
+  fruit: {fileID: 0}
   audioSrc: {fileID: 0}
   timeBetweenShots: 0.6
-  volume: 0.5
 --- !u!82 &183909769
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1148,6 +1245,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: pear_v2
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 131007c48b6574317b03fc51cb8b0dc4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Fruit
       objectReference: {fileID: 0}
     - target: {fileID: 2849758205175617200, guid: 131007c48b6574317b03fc51cb8b0dc4,
         type: 3}
@@ -1968,6 +2070,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: banana_v2
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 92dd6c53548404350b13f2802e957443,
+        type: 3}
+      propertyPath: m_TagString
+      value: Fruit
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92dd6c53548404350b13f2802e957443, type: 3}
 --- !u!1001 &727319584
@@ -2056,6 +2163,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: cherry_v2
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 9a12c147dd0d840fc98df926f762853c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Fruit
       objectReference: {fileID: 0}
     - target: {fileID: 1318462475825722627, guid: 9a12c147dd0d840fc98df926f762853c,
         type: 3}
@@ -2154,7 +2266,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -31}
+  m_AnchoredPosition: {x: 0, y: -25}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &852302168
@@ -2755,6 +2867,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: apple_v3
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 279553318ab7444deb243d4ab5aecdf9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Fruit
       objectReference: {fileID: 0}
     - target: {fileID: 1318462475825722627, guid: 279553318ab7444deb243d4ab5aecdf9,
         type: 3}
@@ -3783,7 +3900,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 256, y: 183}
+  m_AnchoredPosition: {x: 261, y: 114}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1272067119
@@ -4093,7 +4210,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -121, y: -31}
+  m_AnchoredPosition: {x: -170, y: -59}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!82 &1419990389
@@ -4207,7 +4324,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oldVal: 1
   levelText: {fileID: 1419990391}
-  newLevel: {fileID: 0}
+  levelUp: {fileID: 0}
+  audioSrc: {fileID: 0}
 --- !u!114 &1419990391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4632,6 +4750,7 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   distance: 0
   eatGhost: {fileID: 0}
+  audioSrc: {fileID: 0}
 --- !u!135 &1499618277
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5778,6 +5897,7 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   distance: 0
   eatGhost: {fileID: 0}
+  audioSrc: {fileID: 0}
 --- !u!195 &1857829798
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6376,6 +6496,7 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   distance: 0
   eatGhost: {fileID: 0}
+  audioSrc: {fileID: 0}
 --- !u!122 &1999646009
 Halo:
   m_ObjectHideFlags: 0
@@ -6559,7 +6680,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 121, y: -31}
+  m_AnchoredPosition: {x: 174, y: -67}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1999680356
@@ -6695,6 +6816,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1999680356}
   extraLife: {fileID: 0}
+  audioSrc: {fileID: 0}
+  timeBetweenShots: 0.25
+  newLife: 0
 --- !u!82 &1999680359
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6893,6 +7017,7 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   distance: 0
   eatGhost: {fileID: 0}
+  audioSrc: {fileID: 0}
 --- !u!95 &2101946331
 Animator:
   serializedVersion: 3
@@ -7727,12 +7852,12 @@ PrefabInstance:
     - target: {fileID: 7845656229076696460, guid: 186724b9d33c1bf489ef2e4fce2a4467,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7845656229076696460, guid: 186724b9d33c1bf489ef2e4fce2a4467,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -212
+      value: -103
       objectReference: {fileID: 0}
     - target: {fileID: 7845656229076696460, guid: 186724b9d33c1bf489ef2e4fce2a4467,
         type: 3}

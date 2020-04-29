@@ -71,7 +71,7 @@ public class PacmanController : MonoBehaviour
         animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
         //  animator.SetBool("isMoving", true);
-        pacdotCounter = 5;
+        pacdotCounter = 286;
         level = 1;  // default at level 1
         health = 3;
         Life1.gameObject.SetActive(true);

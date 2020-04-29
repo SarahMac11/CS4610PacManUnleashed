@@ -6,23 +6,23 @@ using TMPro;
 public class LevelUpAlert : MonoBehaviour
 {
     public TextMeshProUGUI levelUpText;
-    
+
     void Start()
     {
-        levelUpText = GetComponent<TextMeshProUGUI> ();
+        levelUpText = GetComponent<TextMeshProUGUI>();
     }
-    
+
     // Update is called once per frame
     void Update()
     {
-        if(LevelUp.newLevelUpdate) 
+        if (LevelUp.newLevelUpdate)
         {
             StartCoroutine(ShowMessage("LEVEL UP", 5));
-//            LevelUp.newLevelUpdate = false;
+            //            LevelUp.newLevelUpdate = false;
         }
     }
-    
-    IEnumerator ShowMessage (string message, float delay)
+
+    IEnumerator ShowMessage(string message, float delay)
     {
         levelUpText.text = message;
         levelUpText.enabled = true;    // show text
