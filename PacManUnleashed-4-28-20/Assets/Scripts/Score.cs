@@ -13,7 +13,10 @@ public class Score : MonoBehaviour
     // eat ghost audio
     public AudioClip extraLife;
     public AudioSource audioSrc;
-    
+
+    public float timeBetweenShots = 0.25f;
+    private float timer;
+
     public bool newLife = false;
     
     // Start is called before the first frame update
@@ -35,7 +38,11 @@ public class Score : MonoBehaviour
             print("score health " + PacmanController.health);
             print("Playing extra life at " + audioSrc.volume);
             // play extra life audio
-            audioSrc.PlayOneShot(extraLife, audioSrc.volume);
+            if(timer > timeBetweenShots){
+                audioSrc.PlayOneShot(extraLife, audioSrc.volume);
+                timer = 0;
+            }
+            //audioSrc.PlayOneShot(extraLife, audioSrc.volume);
         }
         
         ShowScore();
@@ -46,5 +53,14 @@ public class Score : MonoBehaviour
         // update text score
         scoreText.text = "SCORE" + "\n" + score.ToString();
     }
-    
+
+    private static void SetTimer()
+    {
+        // Create a timer with a two second interval.
+        aTimer = new System.Timers.Timer(2000);
+        // Hook up the Elapsed event for the timer.
+        aTimer.AutoReset = true;
+        aTimer.Enabled = true;
+    }
+
 }

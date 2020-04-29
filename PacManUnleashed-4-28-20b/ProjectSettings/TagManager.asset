@@ -11,6 +11,7 @@ TagManager:
   - Teleporter2
   - Spawn
   - Pacdot
+  - Fruit
   layers:
   - Default
   - TransparentFX

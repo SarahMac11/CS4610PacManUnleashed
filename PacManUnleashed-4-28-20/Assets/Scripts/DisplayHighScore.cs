@@ -12,18 +12,7 @@ public class DisplayHighScore : MonoBehaviour
     void Start()
     {
         highScore = GetComponent<TextMeshProUGUI> ();
-        
-//        // update text score
-//        highScore.text = "HIGH SCORE " + Score.score.ToString();
-
-//    if(SceneManager.GetActiveScene().name == "gameover") {
-//            if(PlayerPrefs.GetInt("HighScore").ToString() == Score.score.ToString()) {
-//                highScore.text = "NEW HIGH SCORE!" + "\n" + "HIGH SCORE" + "\n" + Score.score.ToString();
-//            }
-//        } else {
-            // set starting high score as 0
-            highScore.text = "HIGH SCORE" + "\n" + PlayerPrefs.GetInt("HighScore").ToString();
-//        }
+        highScore.text = "HIGH SCORE" + "\n" + PlayerPrefs.GetInt("HighScore").ToString();
     }
 
 }

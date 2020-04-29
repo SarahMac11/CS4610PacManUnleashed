@@ -5,40 +5,28 @@ using UnityEngine.UI;
 
 public class Pacdot : MonoBehaviour
 {
-    // audio source
-    //    public AudioSource chomp;
-   // public int pacdotCounter; 
-    void Start() 
+
+    // public int pacdotCounter; 
+    void Start()
     {
-        // Get audio
-//        chomp = GetComponent<AudioSource> ();
+
     }
     void Update()
     {
-        if(PacmanController.pacdotCounter == 280)
-        {
-           // Debug.Log("made it");
-          //  Pacdot.SetActive(true);
-        }
-       // Debug.Log("test");
-      //  this.gameObject.SetActive(true);
-    }
-    
 
-    public void Reset()
+    }
+
+
+    void OnTriggerEnter(Collider co)
     {
-        //this.gameObject.SetActive(true);
-    }
+        if (co.gameObject.name == "Pacman")
+        {   // if pacman collides into pac dot
 
-    void OnTriggerEnter(Collider co) {
-        if(co.gameObject.name == "Pacman") {   // if pacman collides into pac dot
-        
-//            chomp.Play();
-            // send react message
+            // add 10 points
             Score.score += 10;
+            // set not active
             this.gameObject.SetActive(false);
-            // destory pac dot game object
         }
     }
-    
+
 }

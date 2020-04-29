@@ -5,7 +5,7 @@ using TMPro;
 
 public class LevelUp : MonoBehaviour
 {
-    public static int level = 1;    // initialize score to 0
+    public static int level = 1;        // start level at 1
     public int oldVal = 0;
     
     public TextMeshProUGUI levelText;
@@ -31,20 +31,16 @@ public class LevelUp : MonoBehaviour
         level = PacmanController.level;
         if(level > oldVal) {
             newLevelUpdate = true;
-//            print("old val " + oldVal);
-//            print("level " + level);
             showLevelUp();
             showLevel();
             oldVal = level;
-            // play extra life audio
+            // play level up audio
             audioSrc.PlayOneShot(levelUp, audioSrc.volume);
-//            print("new old val " + oldVal);
             
         } else {
             newLevelUpdate = false;
             showLevel();
         }
-//        showLevel();
     }
     
     void showLevel()

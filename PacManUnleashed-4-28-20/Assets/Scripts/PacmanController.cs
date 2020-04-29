@@ -52,9 +52,8 @@ public class PacmanController : MonoBehaviour
             {
                 pacdots[i].SetActive(true);
             }
-            // increase level
+            // increment level
             level++;
-            print("pac controller level " + level);
         }
         isEmpty = false;
     }
@@ -136,7 +135,6 @@ public class PacmanController : MonoBehaviour
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 break;
         }
-        // print("health " + health);
     }
     void OnTriggerEnter(Collider other)
     {
@@ -153,9 +151,7 @@ public class PacmanController : MonoBehaviour
                 // play death audio
                 audioSrc.PlayOneShot(death, audioSrc.volume);
             }
-            // else if (other.CompareTag("Wall"))
-            //while(other.CompareTag("Wall"))
-            //     animator.SetBool("isMoving", false);
+
         }
         if (other.CompareTag("Teleporter1"))
         {
@@ -177,9 +173,7 @@ public class PacmanController : MonoBehaviour
         }
         if (other.CompareTag("Pacdot"))
         {
-           // audioSrc.PlayOneShot(chomp, volume);
             pacdotCounter -= 1;
-            //Debug.Log(pacdotCounter);
             if (pacdotCounter == 0)
             {
                 pacdotCounter = 286;
@@ -197,6 +191,7 @@ public class PacmanController : MonoBehaviour
             }
         }
         if(other.CompareTag("Fruit")) {
+            // play fruit audio on collision
             audioSrc.PlayOneShot(fruit, audioSrc.volume);
         }
     }

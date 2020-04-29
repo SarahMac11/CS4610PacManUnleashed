@@ -13,28 +13,17 @@ public class Pacdot : MonoBehaviour
     }
     void Update()
     {
-        if(PacmanController.pacdotCounter == 280)
-        {
-           // Debug.Log("made it");
-          //  Pacdot.SetActive(true);
-        }
-       // Debug.Log("test");
-      //  this.gameObject.SetActive(true);
-    }
-    
 
-    public void Reset()
-    {
-        //this.gameObject.SetActive(true);
     }
+
 
     void OnTriggerEnter(Collider co) {
         if(co.gameObject.name == "Pacman") {   // if pacman collides into pac dot
         
-            // send react message
+            // add 10 points
             Score.score += 10;
+            // set not active
             this.gameObject.SetActive(false);
-            // destory pac dot game object
         }
     }
     

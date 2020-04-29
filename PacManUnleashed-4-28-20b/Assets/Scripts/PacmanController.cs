@@ -28,16 +28,16 @@ public class PacmanController : MonoBehaviour
     public static int health;
     public Transform Teleporter1;
     public Transform Teleporter2;
+    // audio sources
     public AudioClip death;
     public AudioClip chomp;
+    public AudioClip fruit;
     public AudioSource audioSrc;
-      public float timeBetweenShots = 0.25f;
+    public float timeBetweenShots = 0.25f;
     private float timer;
-    //    public float volume = PlayerPrefs.GetFloat("SliderVolumeLevel", death.volume);
-    public float volume = 0.25f;
-    
+
     public static int level;
-    
+
     public void Reset()
     {
         transform.position = initialPosition;
@@ -52,27 +52,26 @@ public class PacmanController : MonoBehaviour
             {
                 pacdots[i].SetActive(true);
             }
-            // increase level
+            // increment level
             level++;
-            print("pac controller level " + level);
         }
         isEmpty = false;
     }
     // Start is called before the first frame update
     void Start()
     {
-        // Get audio
+        // Get audio volume
         audioSrc = GetComponent<AudioSource>();
-        //
-        //        // get slider volume level if set
-        //        audio.volume = PlayerPrefs.GetFloat("SliderVolumeLevel", death.volume);
+        audioSrc.volume = PlayerPrefs.GetFloat("SliderVolumeLevel", audioSrc.volume);
+
+
         //SetTimer();
         QualitySettings.vSyncCount = 0;
         initialPosition = transform.position;
         animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
         //  animator.SetBool("isMoving", true);
-        pacdotCounter = 286;
+        pacdotCounter = 5;
         level = 1;  // default at level 1
         health = 3;
         Life1.gameObject.SetActive(true);
@@ -97,10 +96,12 @@ public class PacmanController : MonoBehaviour
         // transform.Rotate(0,90,0,Space.Self);
         animator.SetBool("isMoving", isMoving);
         if (isMoving)
-        {   timer += Time.deltaTime;
-            if(timer>timeBetweenShots){
-            audioSrc.PlayOneShot(chomp, volume);
-            timer=0;
+        {
+            timer += Time.deltaTime;
+            if (timer > timeBetweenShots)
+            {
+                audioSrc.PlayOneShot(chomp, audioSrc.volume);
+                timer = 0;
             }
             //  transform.Translate(Vector3.forward * MovementSpeed * Time.deltaTime);
             moveDirection = new Vector3(Input.GetAxis("Horizontal") * moveSpeed, 0f, Input.GetAxis("Vertical") * moveSpeed);
@@ -136,7 +137,6 @@ public class PacmanController : MonoBehaviour
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 break;
         }
-        // print("health " + health);
     }
     void OnTriggerEnter(Collider other)
     {
@@ -151,11 +151,9 @@ public class PacmanController : MonoBehaviour
                 aTimer.Stop();
                 aTimer.Dispose();
                 // play death audio
-                audioSrc.PlayOneShot(death, volume);
+                audioSrc.PlayOneShot(death, audioSrc.volume);
             }
-            // else if (other.CompareTag("Wall"))
-            //while(other.CompareTag("Wall"))
-            //     animator.SetBool("isMoving", false);
+
         }
         if (other.CompareTag("Teleporter1"))
         {
@@ -177,9 +175,7 @@ public class PacmanController : MonoBehaviour
         }
         if (other.CompareTag("Pacdot"))
         {
-           // audioSrc.PlayOneShot(chomp, volume);
             pacdotCounter -= 1;
-            //Debug.Log(pacdotCounter);
             if (pacdotCounter == 0)
             {
                 pacdotCounter = 286;
@@ -195,6 +191,11 @@ public class PacmanController : MonoBehaviour
                 //GameObject[] pacdots = GameObject.FindGameObjectsWithTag("Pacdot");
                 //Pacdot.gameObject.SetActive(true);
             }
+        }
+        if (other.CompareTag("Fruit"))
+        {
+            // play fruit audio on collision
+            audioSrc.PlayOneShot(fruit, audioSrc.volume);
         }
     }
     private static void SetTimer()

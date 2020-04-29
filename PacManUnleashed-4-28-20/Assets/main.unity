@@ -404,6 +404,7 @@ MonoBehaviour:
   Teleporter2: {fileID: 156333815}
   death: {fileID: 8300000, guid: 6d58c052644f14b30ad5585bd9581fe8, type: 3}
   chomp: {fileID: 8300000, guid: d242853bf938044bba76ea91a7f3ce49, type: 3}
+  fruit: {fileID: 0}
   audioSrc: {fileID: 0}
   timeBetweenShots: 0.6
 --- !u!82 &183909769

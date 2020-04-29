@@ -21,8 +21,8 @@ public class HighScore : MonoBehaviour
     {
         if(Score.score > PlayerPrefs.GetInt("HighScore", 0))
         {
-            PlayerPrefs.SetInt("HighScore", Score.score);
-            highScore.text = "NEW HIGH SCORE!" + "\n" + "HIGH SCORE" + "\n" + Score.score.ToString();
+            PlayerPrefs.SetInt("HighScore", Score.score);       // set high score
+            highScore.text = "NEW HIGH SCORE!" + "\n" + "HIGH SCORE" + "\n" + Score.score.ToString();   // display high score
         }
         
         ShowHighScore();

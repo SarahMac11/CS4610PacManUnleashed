@@ -62,7 +62,7 @@ public class GhostFollow : MonoBehaviour
         if (currentMode == Mode.Scared)
         {
             //slightly slow down ghosts and run away from pacman
-            GetComponent<NavMeshAgent>().speed = 4;
+            GetComponent<NavMeshAgent>().speed = 4; // increment with level (7 + level * .3)
             enemy.destination = player.transform.position + (transform.position - player.transform.position) * 2;
             ghostMode = 0;
         }
@@ -77,6 +77,7 @@ public class GhostFollow : MonoBehaviour
             {
                 enemy.destination = player.transform.position + offset;
             }
+            // increment with level (7 + level * .3)
             GetComponent<NavMeshAgent>().speed = 7;
             ghostMode = 1;
         }
@@ -141,8 +142,6 @@ public class GhostFollow : MonoBehaviour
                 startNormalGhost();
                 // increment score when run into ghost
                 Score.score += 100;
-                // increment health
-//                PacmanController.health++;
                 // play eat ghost audio
                 audioSrc.PlayOneShot(eatGhost, audioSrc.volume);
             }
