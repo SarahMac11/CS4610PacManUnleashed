@@ -27,7 +27,6 @@ public class VolumeChange : MonoBehaviour
     // set volume
     public void SetVolume(float volume)
     {
-        Debug.Log("vol " + volume);
         musicVolume = volume;
         SaveSliderValue(musicVolume);
     }

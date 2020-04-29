@@ -12,22 +12,37 @@ public class FruitSpawn : MonoBehaviour
     public int points; //how many points fruit are worth
     public int spawned = 0;
 
+    // eat ghost audio
+    public AudioClip fruitChomp;
+    public AudioSource audioSrc;
+
+    void Start()
+    {
+        // Get audio volume
+        audioSrc = GetComponent<AudioSource>();
+        audioSrc.volume = PlayerPrefs.GetFloat("SliderVolumeLevel", audioSrc.volume);
+    }
+
     // Start is called before the first frame update
     void Update()
     {
         if(PacmanController.pacdotCounter == num_pacdots && PacmanController.level==spawnlevel && spawned==0)
         {
-         clone=GameObject.Instantiate(fruit, transform.position, transform.rotation);
-         spawned=1;
+            clone=GameObject.Instantiate(fruit, transform.position, transform.rotation);
+            spawned=1;
         }
     }
 
     void OnTriggerEnter(Collider co) {
         
             if (co.CompareTag("Pacman")) {   // if pacman collides into fruit
+                // add score and health
                 Score.score += points;
+                PacmanController.health++;
+                // play level up audio
+                //audioSrc.PlayOneShot(fruitChomp, audioSrc.volume);
                 clone.SetActive(false);    // destory fruit
-        }
+            }
     }
 
 }
