@@ -34,15 +34,20 @@ public class FruitSpawn : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider co) {
-        
-            if (co.CompareTag("Pacman")) {   // if pacman collides into fruit
+
+        if(spawned == 1)
+        {
+            if (co.CompareTag("Pacman"))
+            {   // if pacman collides into fruit
                 // add score and health
                 Score.score += points;
                 PacmanController.health++;
                 // play level up audio
-                //audioSrc.PlayOneShot(fruitChomp, audioSrc.volume);
+                audioSrc.PlayOneShot(fruitChomp, audioSrc.volume);
                 clone.SetActive(false);    // destory fruit
             }
+        }
+            
     }
 
 }
