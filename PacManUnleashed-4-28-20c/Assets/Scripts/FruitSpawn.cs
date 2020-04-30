@@ -35,7 +35,7 @@ public class FruitSpawn : MonoBehaviour
 
     void OnTriggerEnter(Collider co) {
 
-        if(spawned == 1)
+        if(spawned > 0)
         {
             if (co.CompareTag("Pacman"))
             {   // if pacman collides into fruit

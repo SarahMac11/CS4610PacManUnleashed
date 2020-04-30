@@ -4924,7 +4924,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oldVal: 1
   levelText: {fileID: 1419990391}
-  levelUp: {fileID: 0}
+  levelUp: {fileID: 8300000, guid: 938f3f8bac1b5455a9aa7c8cfd425b78, type: 3}
   audioSrc: {fileID: 0}
 --- !u!114 &1419990391
 MonoBehaviour:
@@ -5447,9 +5447,9 @@ MonoBehaviour:
   scaredModeDuration: 10
   startBlinking: 7
   blink: 1
-  offset: {x: 0, y: 0, z: 0}
+  offset: {x: -5, y: 0, z: 0}
   distance: 0
-  eatGhost: {fileID: 0}
+  eatGhost: {fileID: 8300000, guid: 4ab400c6ed9d84f10892f2162a5ca4da, type: 3}
   audioSrc: {fileID: 0}
 --- !u!135 &1499618277
 SphereCollider:
@@ -6594,9 +6594,9 @@ MonoBehaviour:
   scaredModeDuration: 10
   startBlinking: 7
   blink: 1
-  offset: {x: 0, y: 0, z: 0}
+  offset: {x: -5, y: 0, z: -5}
   distance: 0
-  eatGhost: {fileID: 0}
+  eatGhost: {fileID: 8300000, guid: 4ab400c6ed9d84f10892f2162a5ca4da, type: 3}
   audioSrc: {fileID: 0}
 --- !u!195 &1857829798
 NavMeshAgent:
@@ -7193,9 +7193,9 @@ MonoBehaviour:
   scaredModeDuration: 10
   startBlinking: 7
   blink: 1
-  offset: {x: 0, y: 0, z: 0}
+  offset: {x: 5, y: 0, z: 5}
   distance: 0
-  eatGhost: {fileID: 0}
+  eatGhost: {fileID: 8300000, guid: 4ab400c6ed9d84f10892f2162a5ca4da, type: 3}
   audioSrc: {fileID: 0}
 --- !u!122 &1999646009
 Halo:
@@ -7716,7 +7716,7 @@ MonoBehaviour:
   blink: 1
   offset: {x: 0, y: 0, z: 0}
   distance: 0
-  eatGhost: {fileID: 0}
+  eatGhost: {fileID: 8300000, guid: 4ab400c6ed9d84f10892f2162a5ca4da, type: 3}
   audioSrc: {fileID: 0}
 --- !u!95 &2101946331
 Animator:
